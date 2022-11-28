@@ -29,24 +29,22 @@ const footer = fs.readFileSync('../txt/footer.txt', 'utf-8', (err: any) => {
 });
 
 const bodyChanger = (childItem1: string, childItem2: string, childItem3: string) => {
-  const bodyContext = `${childItem1} ${childItem2} ${childItem3}`;
-
-  let l_body;
+  const bodyContext = `${childItem1} ${childItem2} ${childItem3}`; 
 
   // const returnBody = readBody();
   
   fs.appendFile('../txt/body.txt', bodyContext, (err: any) => {
     if (err) throw err;
-    l_body = readBody();
-    console.log("a");
-    console.log(l_body);
+    const l_body = readBody();
+    //console.log("a");
+    //console.log(l_body);
     combine(header, l_body);
   });
   
 
 // const l_body:any = fs.readFileSync('../txt/body.txt', 'utf-8', (err: any) => {
 //       if (err) throw err;
-//   }    
+//   }
 }
 
 
@@ -65,13 +63,10 @@ const bodyChanger = (childItem1: string, childItem2: string, childItem3: string)
 
 // // const l_body:any = fs.readFileSync('../txt/body.txt', 'utf-8', (err: any) => {
 // //       if (err) throw err;
-// //   }  
-  
+// //   }    
   
 //   return updatBody;
 // }
-
-
 
 // const promise = () => {
 //   fs.readFileSync('../txt/body.txt', 'utf-8', (err: any) => {
@@ -83,16 +78,10 @@ const bodyChanger = (childItem1: string, childItem2: string, childItem3: string)
 // console.log("b");
 // console.log(bodyText);
 
-
-
-
 const combine = (head: string, body: string) => {
   const html = `<html> <head>${head}</head> <body> ${body} </body></html>`
   openServer(html);  
 }
-
-
-
 
 function openServer(html: any) {
   const server = http.createServer((req: any, res: any) => {
