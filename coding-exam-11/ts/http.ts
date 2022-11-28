@@ -28,7 +28,7 @@ const footer = fs.readFileSync('../txt/footer.txt', 'utf-8', (err: any) => {
   if (err) throw err;
 });
 
-const bodyChanger = (childItem1: string, childItem2: string, childItem3: string) => {
+const DynamicMakeServer = (childItem1: string, childItem2: string, childItem3: string) => {
   const bodyContext = `${childItem1} ${childItem2} ${childItem3}`; 
 
   // const returnBody = readBody();
@@ -46,8 +46,6 @@ const bodyChanger = (childItem1: string, childItem2: string, childItem3: string)
 //       if (err) throw err;
 //   }
 }
-
-
 
 // const bodyChanger = async (childItem1: string, childItem2: string, childItem3: string) => {
 //   const bodyContext = `${childItem1} ${childItem2} ${childItem3}`;
@@ -102,10 +100,7 @@ function openServer(html: any) {
   server.listen(5678, (error: any) => {if(error) throw error});  
 }
 
-bodyChanger(header, main, footer);
-
-
-
+DynamicMakeServer(header, main, footer);
 
 // console.log(combine(,);
 
