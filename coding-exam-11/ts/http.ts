@@ -35,12 +35,12 @@ const footer = fs.readFileSync('../txt/footer.txt', 'utf-8', (err: any) => {
 
 const DynamicMakeServer = (childItem1: string, childItem2: string, childItem3: string) => {
   const bodyContext = `${childItem1} ${childItem2} ${childItem3}`;
-  // const arr = ["a", "b", "c", "d"];
-  // for (let i = 0; i < arr.length; i++) {
-  //   fs.writeFile(`../routes/${arr[i]}.txt`, arr[i], function (err: any) {
-  //     if (err) throw err;
-  //   });
-  // }
+  const arr = ["a", "b", "c", "d"];
+  for (let i = 0; i < arr.length; i++) {
+    fs.writeFile(`../routes/${arr[i]}.txt`, arr[i], function (err: any) {
+      if (err) throw err;
+    });
+  }
 
 
 
@@ -151,7 +151,7 @@ function openServer(index: string, a: string, b: string, c: string, d: string) {
       }
     }
   });
-  server.listen(5678, (error: any) => { if (error) throw error });
+  server.listen(5678, (error: any) => { if (error) throw error; });
 }
 
 DynamicMakeServer(header, main, footer);
